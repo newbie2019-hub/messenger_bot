@@ -68,14 +68,16 @@ let getWebhook = (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
     let response;
-
+    let covidsummary = covid.getSummary;
     // Check if the message contains text
     if (received_message.text) {    
   
       // Create the payload for a basic text message
       response = {
-        "text": `You sent the message: "${covid.getSummary}". Now send me an image!`
+        "text": `You sent the message: "${received_message.text}". Now send me an image!`
+        
       }
+      console.log(covidsummary)
     }  
     
     // Sends the response message
