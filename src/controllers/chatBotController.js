@@ -16,11 +16,13 @@ request(options, function (error, response) {
     let country = [];
     for(var i = 0; i < json['Countries'].length; i++ ){
         country.push(json['Countries'][i]['slug']);
+        console.log(json['Countries'][i]['slug']);
     }
     for(var i = 0; i < country.length; i++ ){
         console.log(country[i]);
+        
     }
-   
+    console.log(country);
 });
 
 let postWebhook = (req, res) => {
