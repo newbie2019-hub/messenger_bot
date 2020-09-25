@@ -15,7 +15,7 @@ request(options, function (error, response) {
 
     let country = [];
     for(var i = 0; i < json['Countries'].length; i++ ){
-        country.push(json['Countries'][i]['Slug']);
+        country.push(json['Countries'][i]['Slug'] + ':' + json['Countries'][i]['Slug']['TotalConfirmed']);
     }
     for(var i = 0; i < country.length; i++ ){
         console.log(country[i]);
