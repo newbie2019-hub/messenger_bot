@@ -85,7 +85,7 @@ function handleMessage(sender_psid, received_message) {
     
       // Create the payload for a basic text message
       response = {
-        "text": `${json['Global']['NewConfirmed']}`
+        "text": `Total Covid-19 Deaths: ${json['Global']['TotalDeaths']}`
       }
     }  
     if (received_message.text == "hi") {    
