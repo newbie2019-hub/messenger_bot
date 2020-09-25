@@ -81,7 +81,7 @@ let getWebhook = (req, res) => {
 function handleMessage(sender_psid, received_message) {
     let response;
     // Check if the message contains text
-    if (received_message.text == 'totaldeaths') {    
+    if (received_message.text == "totaldeaths") {    
     
       // Create the payload for a basic text message
       response = {
