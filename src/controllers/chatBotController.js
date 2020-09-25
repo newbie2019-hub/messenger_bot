@@ -81,18 +81,18 @@ let getWebhook = (req, res) => {
 function handleMessage(sender_psid, received_message) {
     let response;
     // Check if the message contains text
-    if (received_message.text == "totaldeaths") {    
+    if (received_message.text == "#totaldeaths") {    
     
       // Create the payload for a basic text message
       response = {
-        "text": `Total Covid-19 Deaths: ${json['Global']['TotalDeaths']}`
+        "text": `Covid-19 Deaths: ${json['Global']['TotalDeaths']}`
       }
     }  
-    if (received_message.text == "hi") {    
+    if (received_message.text == "#Commands") {    
     
       // Create the payload for a basic text message
       response = {
-        "text": `You sent the message: "${received_message.text}". Now send me an image!`
+        "text": "☣️ Available Commands ☣️ \n \n🗺️Total Confirmed: \n#totalconfirmed \n☣️Total Deaths: \n#totaldeaths \n🌎Total Recovered: \n#totalrecovered"
       }
     }  
     
