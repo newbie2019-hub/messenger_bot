@@ -81,21 +81,27 @@ let getWebhook = (req, res) => {
 function handleMessage(sender_psid, received_message) {
     let response;
     // Check if the message contains text
+    if (received_message.text == "#Commands") {    
+        response = {
+          "text": "☣️ Available Commands ☣️ \n \n🗺️Total Confirmed: \n#totalconfirmed \n☣️Total Deaths: \n#totaldeaths \n🌎Total Recovered: \n#totalrecovered"
+        }
+    } 
     if (received_message.text == "#totaldeaths") {    
-    
-      // Create the payload for a basic text message
       response = {
         "text": `Covid-19 Deaths: ${json['Global']['TotalDeaths']}`
       }
     }  
-    if (received_message.text == "#Commands") {    
-    
-      // Create the payload for a basic text message
+    if (received_message.text == "#totalconfirmed") {    
       response = {
-        "text": "☣️ Available Commands ☣️ \n \n🗺️Total Confirmed: \n#totalconfirmed \n☣️Total Deaths: \n#totaldeaths \n🌎Total Recovered: \n#totalrecovered"
+        "text": `Covid-19 Deaths: ${json['Global']['TotalConfirmed']}`
       }
     }  
-    
+    if (received_message.text == "#totalrecovered") {    
+      response = {
+        "text": `Covid-19 Deaths: ${json['Global']['TotalRecovered']}`
+      }
+    }  
+     
     // Sends the response message
     callSendAPI(sender_psid, response);    
 }
