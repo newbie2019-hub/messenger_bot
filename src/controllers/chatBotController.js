@@ -85,10 +85,10 @@ function handleMessage(sender_psid, received_message) {
     
       // Create the payload for a basic text message
       response = {
-        "text": `You sent the message: "${json['Global']['NewConfirmed']}". Now send me an image!`
+        "text": `${json['Global']['NewConfirmed']}`
       }
     }  
-    if (received_message.text) {    
+    if (received_message.text == "hi") {    
     
       // Create the payload for a basic text message
       response = {
