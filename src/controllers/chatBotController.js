@@ -24,7 +24,7 @@ let postWebhook = (req, res) => {
 
 let getWebhook = (req, res) => {
      // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+  let VERIFY_TOKEN = process.env.MY_VERIFY_TOKEN;
     
   // Parse the query params
   let mode = req.query['hub.mode'];
