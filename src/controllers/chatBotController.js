@@ -1,8 +1,6 @@
 require("dotenv").config();
 import request from "request";
-
-//SUMMARY
-
+let json = ''
 var options = {
     'method': 'GET',
     'url': 'https://api.covid19api.com/summary',
@@ -12,8 +10,9 @@ var options = {
 
 request(options, function (error, response) {
     if (error) throw new Error(error);
-    var global = response.body['Global'][0]['TotalDeaths'];
-    console.log(global);
+    json = JSON.parse(response.body);
+    console.log(json['Global']['NewConfirmed']);
+    
 });
 
 let postWebhook = (req, res) => {
