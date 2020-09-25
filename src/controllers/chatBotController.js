@@ -2,7 +2,6 @@ require("dotenv").config();
 import request from "request";
 
 //SUMMARY
-var request = require('request');
 
 var options = {
     'method': 'GET',
