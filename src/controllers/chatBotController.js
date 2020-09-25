@@ -94,7 +94,7 @@ function handleMessage(sender_psid, received_message) {
     // Check if the message contains text
     if (received_message.text == "#Commands") {    
         response = {
-          "text": "☣️ Available Commands ☣️ \n \n🗺️Total Confirmed: \n#totalconfirmed \n☣️Total Deaths: \n#totaldeaths \n🌎Total Recovered: \n#totalrecovered \n☣️Country Total Death: \n#countryname"
+          "text": "☣️ Available Commands ☣️ \n \n🗺️Total Confirmed: \n#totalconfirmed \n☣️Total Deaths: \n#totaldeaths \n🌎Total Recovered: \n#totalrecovered \n☣️Country Total Cases: \n#countryname"
         }
     } 
     if (received_message.text == "#totaldeaths") {    
