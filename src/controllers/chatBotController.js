@@ -1,6 +1,7 @@
 require("dotenv").config();
 import request from "request";
 let json = ''
+
 var options = {
     'method': 'GET',
     'url': 'https://api.covid19api.com/summary',
@@ -11,8 +12,6 @@ var options = {
 request(options, function (error, response) {
     if (error) throw new Error(error);
     json = JSON.parse(response.body);
-    console.log(json['Global']['NewConfirmed']);
-    
 });
 
 let postWebhook = (req, res) => {
@@ -82,11 +81,11 @@ let getWebhook = (req, res) => {
 function handleMessage(sender_psid, received_message) {
     let response;
     // Check if the message contains text
-    if (received_message.text) {    
-  
+    if (received_message.text == 'totaldeaths') {    
+    
       // Create the payload for a basic text message
       response = {
-        "text": `You sent the message: "${received_message.text}". Now send me an image!`
+        "text": `You sent the message: "${json['Global']['NewConfirmed']}". Now send me an image!`
         
       }
       console.log('GG' + covidsummary)
