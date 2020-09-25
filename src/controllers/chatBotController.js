@@ -12,7 +12,7 @@ var options = {
 
 request(options, function (error, response) {
     if (error) throw new Error(error);
-    console.log(response.body[0]);
+    var global = response.body['Global']['TotalDeaths'];
 });
 
 let postWebhook = (req, res) => {
