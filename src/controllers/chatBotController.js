@@ -1,6 +1,8 @@
 require("dotenv").config();
 import request from "request";
 let json = ''
+let country = [];
+let TotalConfirmedCountry = [];
 
 var options = {
     'method': 'GET',
@@ -13,13 +15,14 @@ request(options, function (error, response) {
     if (error) throw new Error(error);
     json = JSON.parse(response.body);
 
-    let country = [];
+    
     for(var i = 0; i < json['Countries'].length; i++ ){
-        country.push(json['Countries'][i]['Slug'] + ':' + json['Countries'][i]['Slug']['TotalConfirmed']);
+        country.push(json['Countries'][i]['Slug']);
     }
-    for(var i = 0; i < country.length; i++ ){
-        console.log(country[i]);
+    for(var i = 0; i < json['Countries'].length; i++ ){
+        TotalConfirmedCountry.push(json['Countries'][i]['Slug'] + ':' + json['Countries'][i]['TotalConfirmed']);
     }
+    
 });
 
 let postWebhook = (req, res) => {
@@ -108,6 +111,13 @@ function handleMessage(sender_psid, received_message) {
       response = {
         "text": `Covid-19 Total Recoveries: ${json['Global']['TotalRecovered']}`
       }
+    }
+    for(var i = 0; i < country.length; i++){
+        if (received_message.text == country[i]) {    
+            response = {
+              "text": `${TotalConfirmedCountry[i]}`
+            }
+        }
     }  
      
     // Sends the response message
