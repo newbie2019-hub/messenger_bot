@@ -77,7 +77,7 @@ function handleMessage(sender_psid, received_message) {
         "text": `You sent the message: "${received_message.text}". Now send me an image!`
         
       }
-      console.log(covidsummary)
+      console.log('GG' + covidsummary)
     }  
     
     // Sends the response message
