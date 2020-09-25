@@ -1,6 +1,6 @@
 require("dotenv").config();
 import request from "request";
-import covid from "covid19api";
+import covid from "../controllers/covid19api";
 
 let postWebhook = (req, res) => {
     // Parse the request body from the POST
