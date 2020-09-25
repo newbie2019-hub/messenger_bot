@@ -93,12 +93,12 @@ function handleMessage(sender_psid, received_message) {
     }  
     if (received_message.text == "#totalconfirmed") {    
       response = {
-        "text": `Covid-19 Deaths: ${json['Global']['TotalConfirmed']}`
+        "text": `Covid-19 Confirmed Cases: ${json['Global']['TotalConfirmed']}`
       }
     }  
     if (received_message.text == "#totalrecovered") {    
       response = {
-        "text": `Covid-19 Deaths: ${json['Global']['TotalRecovered']}`
+        "text": `Covid-19 Total Recoveries: ${json['Global']['TotalRecovered']}`
       }
     }  
      
