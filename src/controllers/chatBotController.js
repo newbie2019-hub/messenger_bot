@@ -1,6 +1,20 @@
 require("dotenv").config();
 import request from "request";
-import covid from "../controllers/covid19api";
+
+//SUMMARY
+var request = require('request');
+
+var options = {
+    'method': 'GET',
+    'url': 'https://api.covid19api.com/summary',
+    'headers': {
+    }
+};
+
+request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body);
+});
 
 let postWebhook = (req, res) => {
     // Parse the request body from the POST
@@ -68,7 +82,6 @@ let getWebhook = (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
     let response;
-    let covidsummary = covid.getSummary;
     // Check if the message contains text
     if (received_message.text) {    
   
