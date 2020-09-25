@@ -14,11 +14,13 @@ request(options, function (error, response) {
     json = JSON.parse(response.body);
 
     let country = [];
-    for(var i = 0; i < json['Countries']; i++ ){
+    for(var i = 0; i < json['Countries'].length; i++ ){
         country.push(json['Countries'][i][slug]);
     }
-
-    console.log(country);
+    for(var i = 0; i < country.length; i++ ){
+        console.log(country[i]);
+    }
+   
 });
 
 let postWebhook = (req, res) => {
