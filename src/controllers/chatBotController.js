@@ -1,5 +1,6 @@
 require("dotenv").config();
 import request from "request";
+import covid from "covid19api";
 
 let postWebhook = (req, res) => {
     // Parse the request body from the POST
@@ -73,7 +74,7 @@ function handleMessage(sender_psid, received_message) {
   
       // Create the payload for a basic text message
       response = {
-        "text": `You sent the message: "${received_message.text}". Now send me an image!`
+        "text": `You sent the message: "${covid.getSummary}". Now send me an image!`
       }
     }  
     
